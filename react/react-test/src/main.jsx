@@ -5,8 +5,8 @@
 // import React from "react";
 
 import { createRoot } from "react-dom/client";
-import App from "./App";
 import "./style.css";
+import Test from "./Test";
 
 
 // import 
@@ -24,5 +24,5 @@ const chank = document.querySelector("#root");
 const root = createRoot(chank);
 
     //reactdom root //it is render react node
-root.render(<App />);
+root.render(<Test />);
 
