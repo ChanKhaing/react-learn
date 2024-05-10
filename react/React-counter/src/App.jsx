@@ -43,7 +43,7 @@ const App = () => {
   return (
     <div>
       <Counter />
-
+       <h1 className="font-bold font-serif text-2xl mb-2">FAQ</h1>
       <div>
         {faqs.map((faq) => (
           <Box key={faq.id} question={faq.question} answer={faq.answer} />
