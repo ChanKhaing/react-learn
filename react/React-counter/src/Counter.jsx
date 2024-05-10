@@ -19,7 +19,7 @@ const Counter = () => {
   };
 
   return (
-    <div className=" grid grid-cols-2 p-5 gap-5">
+    <div className="  grid grid-cols-2 p-5 gap-5">
       <h1 className=" py-5 rounded-lg bg-gray-100 col-span-2 border text-center font-bold font-serif text-5xl">
         {count}
       </h1>
