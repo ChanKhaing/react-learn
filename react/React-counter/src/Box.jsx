@@ -1,11 +1,16 @@
 import React,{useState} from 'react'
 
 const Box = (props) => {
-  const [hide, setHide] = useState(true);
+  // const [hide, setHide] = useState(true);
 
   const handletoggle = () => {
     // hide  ? setHide(false) : setHide(true);
-    setHide(!hide);
+    // setHide(!hide);
+    // console.log(props.click,props.id)
+    props.click(props.id)
+
+
+
   };
   // <h1 className="font-bold font-serif text-2xl">Box content</h1>;
 
@@ -30,7 +35,7 @@ const Box = (props) => {
           </button> */}
 
         <button
-          onClick={handletoggle}
+          onClick= {handletoggle}
           className={`         border border-cyan-400 flex justify-between col-span-full
             px-5 py-2 mb-2 bg-cyan-400 rounded-lg active:bg-cyan-300 duration-200
             active:scale-75`}
@@ -44,7 +49,7 @@ const Box = (props) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className={`w-6 h-6 duration-300 ${!hide && "rotate-180"}`}
+            className={`w-6 h-6 duration-300 ${!props.hide && "rotate-180"}`}
           >
             <path
               strokeLinecap="round"
@@ -56,7 +61,7 @@ const Box = (props) => {
 
         <div
           className={` ${
-            hide && `hidden`
+            props.hide && `hidden`
           } px-10 py-3  mb-4 rounded-lg bg-gray-300  border  col-span-4`}
         >
           <p>{props.answer}</p>
