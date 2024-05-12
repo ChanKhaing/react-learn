@@ -1,17 +1,31 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { useState } from 'react'
+
+
 
 const ListCreateForm = (props) => {
-  return (
+  const [text, setText] = useState("");
+  
+  const textchangehandler = (event) => {
+    setText(event.target.value)
+  }
 
+  const onclickhandler = () => {
+    console.log(text);
+    setText("");
+  }
+
+  return (
     <div className="flex mb-5">
-      {props.createlist("chan")}
+      {/* {props.createlist("chankhine")} */}
       <input
         type="text"
         id="textInput"
+        value={text}
+        onChange={textchangehandler}
         className="border-2 border-zinc-700 focus-visible:outline-none flex-grow px-3"
       />
-      <button id="addBtn" className="bg-zinc-700 text-zinc-50 p-4">
+      <button onClick={onclickhandler} id="addBtn" className="bg-zinc-700 text-zinc-50 p-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

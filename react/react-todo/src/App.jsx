@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState } from "react";
 // import emptySvg from "./assets/empty.svg"
 import Heading from "./Heading";
 import ListCreateForm from './ListCreateForm';
@@ -8,15 +8,24 @@ import ListGroup from "./ListGroup";
 
 
 const App = () => {
-   const tasks = [
-     { id: 1, job: "Complete homework", isDone: false },
-     { id: 2, job: "Do laundry", isDone: true },
-     { id: 3, job: "Buy groceries", isDone: false },
-     { id: 4, job: "Clean the house", isDone: false },
-     { id: 5, job: "Exercise", isDone: false },
-     { id: 6, job: "Read a book", isDone: false },
-     { id: 7, job: "Cook dinner", isDone: true },
-   ];
+  const [tasks, setTask] = useState([
+    { id: 1, job: "Complete homework", isDone: false },
+    { id: 2, job: "Do laundry", isDone: false },
+    { id: 3, job: "Buy groceries", isDone: false },
+    { id: 4, job: "Clean the house", isDone: false },
+    { id: 5, job: "Exercise", isDone: false },
+    { id: 6, job: "Read a book", isDone: false },
+    { id: 7, job: "Cook dinner", isDone: true },
+  ]);
+  //  const tasks = [
+  //    { id: 1, job: "Complete homework", isDone: false },
+  //    { id: 2, job: "Do laundry", isDone: true },
+  //    { id: 3, job: "Buy groceries", isDone: false },
+  //    { id: 4, job: "Clean the house", isDone: false },
+  //    { id: 5, job: "Exercise", isDone: false },
+  //    { id: 6, job: "Read a book", isDone: false },
+  //    { id: 7, job: "Cook dinner", isDone: true },
+  //  ];
   
   const createlist = (job) => {
     const newtask = {
@@ -33,7 +42,7 @@ const App = () => {
     <div className="bg-white w-[450px] mx-auto mt-10 p-10">
       <Heading text="Todo app Chan" />
       <ListCreateForm createlist={createlist} />
-      <ListStatus />
+      <ListStatus tasks={tasks} />
       <ListGroup tasks={tasks} />
 
     

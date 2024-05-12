@@ -27,5 +27,5 @@ const root = createRoot(chank);
     //reactdom root //it is render react node
 // root.render(<Test />);
 // root.render(App());
-root.render(App());
+root.render(<App/>);
 
