@@ -11,13 +11,14 @@ const ListCreateForm = (props) => {
   }
 
   const onclickhandler = () => {
-    console.log(text);
+    props.createlist(text);
+    // console.log(text);
     setText("");
   }
 
   return (
     <div className="flex mb-5">
-      {/* {props.createlist("chankhine")} */}
+      {/* {props.createlist(text)} */}
       <input
         type="text"
         id="textInput"

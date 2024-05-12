@@ -15,7 +15,7 @@ const App = () => {
     { id: 4, job: "Clean the house", isDone: false },
     { id: 5, job: "Exercise", isDone: false },
     { id: 6, job: "Read a book", isDone: false },
-    { id: 7, job: "Cook dinner", isDone: true },
+    { id: 7, job: "Cook dinner", isDone: false },
   ]);
   //  const tasks = [
   //    { id: 1, job: "Complete homework", isDone: false },
@@ -29,21 +29,40 @@ const App = () => {
   
   const createlist = (job) => {
     const newtask = {
-      id: 1,
+      id: Date.now,
       job: job,
       isDone:false,
     };
-    const arr = [...tasks, newtask];
-    console.table(arr);
+    setTask([...tasks, newtask]);
+    // console.table(arr);
     
   }
+
+  const checklist = (id) => {
+   setTask(
+     tasks.map((task) => {
+       if (id === task.id) {
+         // console.log("check",id)
+         task.isDone = !task.isDone;
+         // console.log(task.isDone,id)
+       }
+       return task;
+     })
+   );
+  }
+
+  const deletetask = (id) => {
+    setTask(tasks.filter((task) => id !== task.id));
+  }
+      
+  
 
   return (
     <div className="bg-white w-[450px] mx-auto mt-10 p-10">
       <Heading text="Todo app Chan" />
       <ListCreateForm createlist={createlist} />
       <ListStatus tasks={tasks} />
-      <ListGroup tasks={tasks} />
+      <ListGroup checklist={checklist} tasks={tasks} deletetask={deletetask} />
 
     
 

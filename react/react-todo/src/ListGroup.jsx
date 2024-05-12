@@ -15,7 +15,7 @@ const ListGroup = (props) => {
       {/* <List job="web developer" isDone={true} /> */}
       {
         props.tasks.map((task) => (
-          <List key={task.id} job={task.job} isDone={task.isDone} />
+          <List key={task.id} id={task.id} job={task.job} checklist={props.checklist} isDone={task.isDone} deletetask={props.deletetask} />
         
         ))
       }
