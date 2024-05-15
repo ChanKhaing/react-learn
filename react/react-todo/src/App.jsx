@@ -14,8 +14,7 @@ const App = () => {
     { id: 3, job: "Buy groceries", isDone: false },
     { id: 4, job: "Clean the house", isDone: false },
     { id: 5, job: "Exercise", isDone: false },
-    { id: 6, job: "Read a book", isDone: false },
-    { id: 7, job: "Cook dinner", isDone: false },
+   
   ]);
   //  const tasks = [
   //    { id: 1, job: "Complete homework", isDone: false },
@@ -51,6 +50,32 @@ const App = () => {
    );
   }
 
+  const editlist = (newjob,id) => {
+    setTask(
+      tasks.map((task) => {
+        if (id === task.id) {
+          
+          task.job = newjob;
+          // console.log(task.isDone,id)
+        }
+        return task;
+      })
+    );
+  };
+
+  const list = (id) => {
+    setTask(
+      tasks.map((task) => {
+        if (id === task.id) {
+          // console.log("check",id)
+          task.isDone = !task.isDone;
+          // console.log(task.isDone,id)
+        }
+        return task;
+      })
+    );
+  };
+
   const deletetask = (id) => {
     setTask(tasks.filter((task) => id !== task.id));
   }
@@ -62,7 +87,7 @@ const App = () => {
       <Heading text="Todo app Chan" />
       <ListCreateForm createlist={createlist} />
       <ListStatus tasks={tasks} />
-      <ListGroup checklist={checklist} tasks={tasks} deletetask={deletetask} />
+      <ListGroup checklist={checklist} tasks={tasks} deletetask={deletetask} editlist={editlist} />
 
     
 

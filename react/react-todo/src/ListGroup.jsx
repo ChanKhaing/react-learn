@@ -13,9 +13,10 @@ const ListGroup = (props) => {
     <div>
       <EmptyList />
       {/* <List job="web developer" isDone={true} /> */}
+
       {
         props.tasks.map((task) => (
-          <List key={task.id} id={task.id} job={task.job} checklist={props.checklist} isDone={task.isDone} deletetask={props.deletetask} />
+          <List key={task.id} id={task.id} job={task.job} checklist={props.checklist} editlist={props.editlist} isDone={task.isDone} deletetask={props.deletetask} />
         
         ))
       }

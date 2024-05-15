@@ -1,7 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-
+import { useState } from 'react';
+ 
 const List = (props) => {
+
+  const [isedit, setedit] = useState(false);
+  const [newjob, setnewjob] = useState(props.job);
+
+
   const checkhandler = () => {
     props.checklist(props.id)
   }
@@ -10,6 +16,25 @@ const List = (props) => {
     props.deletetask(props.id)
     // console.log("hello world")
   }
+
+   const handlebtnedit = () => {
+     setedit(true);
+   }
+
+
+   const handlenewjob = () => {
+    
+   }
+
+  const editbtnhandler = () => {
+    // [edittext, setedit] = useState("helloworld");
+
+    // console.log("you click editbtn")
+    props.editlist("edit change", props.id)
+    
+  }
+
+
   return (
     <div
       className={`list group bg-white animate__animated animate__shakeX border border-zinc-700 p-3 mb-3 overflow-hidden ${
@@ -24,10 +49,24 @@ const List = (props) => {
             className="list-checkbox accent-zinc-700 w-4 h-4 "
             // checked={props.isDone}
           />
-          <label className="list-text"> {props.job} </label>
+          {isedit ? (
+            <input
+              type="text"
+              className=" border border-stone-700 text-xs py-1 px-2"
+              value={newjob}
+              onChange={handlenewjob}
+              // onChange={handleNewJobInput}
+              // onKeyUp={handleNewJobInputUpdate}
+            />
+          ) : (
+            <p className={`${props.isDone && "line-through"}`}>{props.job}</p>
+          )}
         </div>
         <div className="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
-          <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2">
+          <button
+            onClick={handlebtnedit}
+            className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
