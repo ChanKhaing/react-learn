@@ -1,47 +1,41 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
-import { useState } from 'react';
- 
-const List = (props) => {
+import React from "react";
+import { useState } from "react";
 
+const List = (props) => {
   const [isedit, setedit] = useState(false);
   const [newjob, setnewjob] = useState(props.job);
 
-
   const checkhandler = () => {
-    props.checklist(props.id)
-  }
+    props.checklist(props.id);
+  };
 
   const delbtnhandler = () => {
-    props.deletetask(props.id)
+    props.deletetask(props.id);
     // console.log("hello world")
-  }
+  };
 
-   const editbtnhandler = () => {
-     setedit(true);
-   }
-  
-   const handlenewjobinput = (event) => {
-     setnewjob(event.target.value)
-   }
-  
+  const editbtnhandler = () => {
+    setedit(true);
+  };
 
-  
-   const handlenewjobinputupdate = (event) => {
-     if (event.key == "Escape" || event.key == "Enter") {
-       props.editlist(newjob,props.id)
-       setedit(false);
+  const handlenewjobinput = (event) => {
+    setnewjob(event.target.value);
+  };
+
+  const handlenewjobinputupdate = (event) => {
+    if (event.key == "Escape") {
+      console.log("update");
     }
-   }
+  };
 
   // const editbtnhandler = () => {
-    // [edittext, setedit] = useState("helloworld");
+  // [edittext, setedit] = useState("helloworld");
 
-    // console.log("you click editbtn")
+  // console.log("you click editbtn")
   //   props.editlist("edit change", props.id)
-    
-  // }
 
+  // }
 
   return (
     <div
@@ -114,6 +108,6 @@ const List = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default List
+export default List;
