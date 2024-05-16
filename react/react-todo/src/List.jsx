@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 import { useState } from 'react';
  
 const List = (props) => {
@@ -13,7 +15,26 @@ const List = (props) => {
   }
 
   const delbtnhandler = () => {
-    props.deletetask(props.id)
+     Swal.fire({
+       title: "Are you sure?",
+       text: "You won't be able to revert this!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Yes, delete it!",
+     }).then((result) => {
+       if (result.isConfirmed) {
+         props.deletetask(props.id);
+         toast.success("List deleted");
+         // Swal.fire({
+         //   title: "Deleted!",
+         //   text: "Your file has been deleted.",
+         //   icon: "success",
+         // });
+       }
+     });
+    // props.deletetask(props.id)
     // console.log("hello world")
   }
 
@@ -41,11 +62,13 @@ const List = (props) => {
   //   props.editlist("edit change", props.id)
     
   // }
+      
 
 
   return (
     <div
-      className={`list group bg-white animate__animated animate__shakeX border border-zinc-700 p-3 mb-3 overflow-hidden ${
+      className={`list group bg-white animate__animated   animate__backInLeft
+ border border-zinc-700 p-3 mb-3 overflow-hidden ${
         props.isDone ? " checked opacity-90 scale-90" : ""
       } `}
     >

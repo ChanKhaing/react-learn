@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react'
+import toast from "react-hot-toast";
+
 
 
 
@@ -16,6 +18,14 @@ const ListCreateForm = (props) => {
     setText("");
   }
 
+    const handleEnter = (event) => {
+      if (event.key === "Enter") {
+        props.createlist(text);
+        setText("");
+        toast.success("List created");
+      }
+    };
+
   return (
     <div className="flex mb-5">
       {/* {props.createlist(text)} */}
@@ -24,6 +34,7 @@ const ListCreateForm = (props) => {
         id="textInput"
         value={text}
         onChange={textchangehandler}
+        onKeyUp={handleEnter}
         className="border-2 border-zinc-700 focus-visible:outline-none flex-grow px-3"
       />
       <button onClick={onclickhandler} id="addBtn" className="bg-zinc-700 text-zinc-50 p-4">

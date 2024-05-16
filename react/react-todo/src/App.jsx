@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 // import emptySvg from "./assets/empty.svg"
 import Heading from "./Heading";
+import { Toaster } from "react-hot-toast";
 import ListCreateForm from './ListCreateForm';
 import ListStatus from "./ListStatus";
 import ListGroup from "./ListGroup";
@@ -28,9 +29,9 @@ const App = () => {
   
   const createlist = (job) => {
     const newtask = {
-      id: Date.now,
+      id:  Math.random() * Math.random(),
       job: job,
-      isDone:false,
+      isDone: false,
     };
     setTask([...tasks, newtask]);
     // console.table(arr);
@@ -87,11 +88,15 @@ const App = () => {
       <Heading text="Todo app Chan" />
       <ListCreateForm createlist={createlist} />
       <ListStatus tasks={tasks} />
-      <ListGroup checklist={checklist} tasks={tasks} deletetask={deletetask} editlist={editlist} />
-
-    
+      <ListGroup
+        checklist={checklist}
+        tasks={tasks}
+        deletetask={deletetask}
+        editlist={editlist}
+      />
 
       {/* <button id="checkAll" class="bg-zinc-700 text-zinc-50 p-4">Check All</button> */}
+      <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );
 }
