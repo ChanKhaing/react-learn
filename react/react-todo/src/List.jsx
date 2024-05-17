@@ -52,6 +52,7 @@ const List = (props) => {
      if (event.key == "Escape" || event.key == "Enter") {
        props.editlist(newjob,props.id)
        setedit(false);
+       toast.success("List edited");
     }
    }
 

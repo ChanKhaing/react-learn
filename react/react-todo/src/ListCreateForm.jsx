@@ -16,6 +16,7 @@ const ListCreateForm = (props) => {
     props.createlist(text);
     // console.log(text);
     setText("");
+    toast.success("List createdd");
   }
 
     const handleEnter = (event) => {
