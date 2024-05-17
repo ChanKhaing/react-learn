@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const List = (props) => {
-
+    const [newjob,setnewjob] =useState(props.job)
     const [edit, setedit] = useState(false);
 
   const delbtnhandler = () => {
@@ -18,12 +18,20 @@ const List = (props) => {
         
     }
 
-    // const handlenewjobinput = () => {
-    //     setedit(true)
-    // }
+    const editbtnhandler = () => {
+        setedit(true);
+    }
 
-    const handlenewjobinputupdate =() => {
+    const handlenewjobinput = (event) => {
         
+        setnewjob(event.target.value)
+    }
+
+    const handlenewjobinputupdate =(event) => {
+        if (event.key == "Enter" || event.key == "Esc") {
+            props.edittask(newjob,props.id)
+            setedit(false);
+        }
     }
     
 
@@ -43,18 +51,18 @@ const List = (props) => {
             <input
               type="text"
               className=" border border-stone-700 text-xs py-1 px-2"
-            //   value={newjob}
+              value={newjob}
               onChange={handlenewjobinput}
               onKeyUp={handlenewjobinputupdate}
             />
           ) : (
             <p className={`${props.isDone ? "line-through" : ""}`}>
-              {props.job}
+              {newjob}
             </p>
           )}
         </div>
         <div className="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
-          <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2" onClick={handlenewjobinput}>
+          <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2" onClick={editbtnhandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

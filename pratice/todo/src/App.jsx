@@ -24,8 +24,16 @@ const App = () => {
     }
 
     const edittask = (editjob,id) => {
-        console.log(editjob,id);
-
+       settask(
+         tasks.map((task) => {
+           if (id === task.id) {
+             // console.log("check",id)
+               task.job = editjob;
+             // console.log(task.isDone,id)
+           }
+           return task;
+         })
+       );
     }
 
   
