@@ -1,11 +1,8 @@
 import React from 'react'
-import App from './App'
-import { createRoot } from 'react-dom/client';
-import "../src/index.css"
-
+import ReactDOM, { createRoot } from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
 
 const rootelement = document.getElementById('root');
 const root = createRoot(rootelement);
-root.render(<App/>)
-
-
+root.render(<App/>);
