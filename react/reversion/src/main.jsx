@@ -6,8 +6,8 @@
 // const element = createElement(type, props, ...children)
 import { createElement } from "react";
 import { createRoot } from "react-dom/client";
-
-const rootelement = document.querySelector("#root");
+import "../src/index.css"
+const rootelement = document.getElementById('root');
 
 const tasks = [
   "Read js book",
@@ -19,6 +19,7 @@ const tasks = [
 // const element = createElement(type, props, ...children);
 
 const root = createRoot(rootelement);
+// root.render()
 // root.render(
 //   createElement(
 //     "div",
@@ -58,8 +59,8 @@ const root = createRoot(rootelement);
 // );
 
 root.render(
-  createElement("section", null,
-    createElement("h1", null, "Todo"),
+  createElement("section", { className : ' p-10'},
+    createElement("div",{ className : 'font-bold m-20 text-red-500' } , "Todo"),
     createElement("form", null,
       createElement("input", null),
       createElement("button",null,"click")

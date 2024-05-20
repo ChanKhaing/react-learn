@@ -59,7 +59,7 @@ const List = (props) => {
             <p className={`${props.isDone ? "line-through" : ""}`}>
               {newjob}
             </p>
-          )}
+          )} 
         </div>
         <div className="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
           <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2" onClick={editbtnhandler}>
