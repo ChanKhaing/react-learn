@@ -4,12 +4,16 @@ const Clicker = () => {
   const [num, setNum] = useState(1);
 
   const handleButton = () => {
+    // setNum((prev) => prev + 1); // 2
+    // setNum((prev) => prev + 1); // 2
     setNum((prev) => prev + 1); // 2
-    setNum((prev) => prev + 1); // 2
-    setNum((prev) => prev + 1); // 2
-    // setNum((prev) => prev + 1); // 3
-    // setNum((prev) => prev + 1); // 4
+    setNum((prev) => prev + 1); // 3
+    setNum((prev) => prev + 1); // 4
+
     // setNum(num + 1); // 2
+    // setNum(num + 1); // 2setNum(num + 1); // 2
+    // setNum(num + 1); // 2setNum(num + 1); // 2
+    // setNum(num + 1); // 2setNum(num + 1); // 2
     // setNum(num + 1); // 2
   };
   return (

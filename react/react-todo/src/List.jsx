@@ -4,14 +4,14 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useState } from 'react';
  
-const List = (props) => {
+const List = ({id,job,isDone,checklist,editlist,deletetask}) => {
 
   const [isedit, setedit] = useState(false);
-  const [newjob, setnewjob] = useState(props.job);
+  const [newjob, setnewjob] = useState(job);
 
 
   const checkhandler = () => {
-    props.checklist(props.id)
+    checklist(id)
   }
 
   const delbtnhandler = () => {
@@ -25,7 +25,7 @@ const List = (props) => {
        confirmButtonText: "Yes, delete it!",
      }).then((result) => {
        if (result.isConfirmed) {
-         props.deletetask(props.id);
+        deletetask(id);
          toast.success("List deleted");
          // Swal.fire({
          //   title: "Deleted!",
@@ -50,7 +50,7 @@ const List = (props) => {
   
    const handlenewjobinputupdate = (event) => {
      if (event.key == "Escape" || event.key == "Enter") {
-       props.editlist(newjob,props.id)
+      editlist(newjob,id)
        setedit(false);
        toast.success("List edited");
     }
@@ -60,7 +60,7 @@ const List = (props) => {
     // [edittext, setedit] = useState("helloworld");
 
     // console.log("you click editbtn")
-  //   props.editlist("edit change", props.id)
+  //   props.editlist("edit change", id)
     
   // }
       
@@ -70,7 +70,7 @@ const List = (props) => {
     <div
       className={`list group bg-white animate__animated   animate__backInLeft
  border border-zinc-700 p-3 mb-3 overflow-hidden ${
-        props.isDone ? " checked opacity-90 scale-90" : ""
+       isDone ? " checked opacity-90 scale-90" : ""
       } `}
     >
       <div className="flex justify-between items-center ">
@@ -79,7 +79,7 @@ const List = (props) => {
             type="checkbox"
             onChange={checkhandler}
             className="list-checkbox accent-zinc-700 w-4 h-4 "
-            checked={props.isDone}
+            checked={isDone}
             disabled={isedit}
           />
           {isedit ? (
@@ -91,7 +91,7 @@ const List = (props) => {
               onKeyUp={handlenewjobinputupdate}
             />
           ) : (
-            <p className={`${props.isDone && "line-through"}`}>{props.job}</p>
+            <p className={`${isDone} && "line-through"}`}>{job}</p>
           )}
         </div>
 
