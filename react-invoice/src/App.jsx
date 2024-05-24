@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import CheckoutForm from './components/CheckoutForm';
 import CheckoutFormList from './components/CheckoutFormList';
+import Drawer from './components/Drawer';
 
 
 
@@ -43,6 +44,12 @@ const App = () => {
         stock: 40,
       },
     ]);
+  
+    const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+    const handleDrawer = () => {
+      setDrawerOpen(!isDrawerOpen);
+    };
 
   return (
     <main className=" flex flex-col min-h-screen">
@@ -56,18 +63,24 @@ const App = () => {
           <SubHeading>Invoice App</SubHeading>
         </Container>
       </Header>
-      
+
       <CheckoutForm products={products} />
-      <CheckoutFormList/>
+      <CheckoutFormList />
 
       <Footer>
         <Container>
           <div className="flex justify-end gap-3">
-            <Button color="light">Manage Invetory</Button>
+          <Button onClick={handleDrawer} color="light">
+              Manage Product</Button>
             <Button>Print</Button>
           </div>
         </Container>
       </Footer>
+      <Drawer
+        products={products}
+        isDrawerOpen={isDrawerOpen}
+        handleDrawer={handleDrawer}
+      />
     </main>
   );
 }
