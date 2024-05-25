@@ -1,11 +1,11 @@
-import React from 'react'
-import { Table,Button } from "flowbite-react";
-import Container from './Container';
+import React from "react";
+import { Table, Button } from "flowbite-react";
+import Container from "./Container";
+import List from "./List";
 import { HiMiniPlus } from "react-icons/hi2";
 import { HiMiniMinus } from "react-icons/hi2";
 
-
-const CheckoutFormList = () => {
+const CheckoutFormList = ({ items }) => {
   return (
     <Container>
       <div className="overflow-x-auto">
@@ -20,38 +20,21 @@ const CheckoutFormList = () => {
             </Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
-            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                {'Apple MacBook Pro 17"'}
+            {
+              items.length == 0 ? 
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+              <Table.Cell colSpan={5} className=" text-center whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                 There is no Item record
               </Table.Cell>
-              <Table.Cell className=" text-end">$2999</Table.Cell>
+                </Table.Row> :
+                items.map((item) => <List key={item.id} item={item} />)
+            }
 
-              <Table.Cell className=" text-end">
-                <div className=" flex justify-end items-center gap-2">
-                                  <Button size="xs" color="gray">
-                                      <HiMiniMinus/>
-                  </Button>
-                  <span>1</span>
-                  <Button size="xs" color="gray">
-                    <HiMiniPlus />
-                  </Button>
-                </div>
-              </Table.Cell>
-              <Table.Cell className=" text-end">$2999</Table.Cell>
-              <Table.Cell>
-                <a
-                  href="#"
-                  className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-                >
-                  Edit
-                </a>
-              </Table.Cell>
-            </Table.Row>
           </Table.Body>
         </Table>
       </div>
     </Container>
   );
-}
+};
 
-export default CheckoutFormList
+export default CheckoutFormList;

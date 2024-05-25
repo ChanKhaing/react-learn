@@ -45,7 +45,26 @@ const App = () => {
       },
     ]);
   
-    const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  
+  const [items, setitems] = useState([
+    {
+      id: 22,
+      title: "macbook pro",
+      price: 50,
+      stock: 80,
+      quantity: 2,
+      cost: 100,
+    },
+    {
+      id: 44,
+      title: "macbook pro",
+      price: 150,
+      stock: 80,
+      quantity: 2,
+      cost: 300,
+    }
+  ]);
 
     const handleDrawer = () => {
       setDrawerOpen(!isDrawerOpen);
@@ -65,7 +84,7 @@ const App = () => {
       </Header>
 
       <CheckoutForm products={products} />
-      <CheckoutFormList />
+      <CheckoutFormList items={items} />
 
       <Footer>
         <Container>
