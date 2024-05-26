@@ -47,24 +47,31 @@ const App = () => {
   
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   
-  const [items, setitems] = useState([
+  const [items, setItems] = useState([
     {
       id: 22,
-      title: "macbook pro",
+      product: {
+        id: 23,
+      title: "macbook pro m1",
       price: 50,
-      stock: 80,
       quantity: 2,
       cost: 100,
-    },
-    {
-      id: 44,
-      title: "macbook pro",
-      price: 150,
-      stock: 80,
+      },
       quantity: 2,
-      cost: 300,
+      cost: 100,
     }
   ]);
+  
+
+ 
+  // const additem = (newitem) => {
+  //   setitems(...items,newitem)
+  // }
+
+  const addItem = (newItem) => {
+    // setItems([...items, newItem]);
+    console.log(newItem);
+  };
 
     const handleDrawer = () => {
       setDrawerOpen(!isDrawerOpen);
@@ -83,7 +90,7 @@ const App = () => {
         </Container>
       </Header>
 
-      <CheckoutForm products={products} />
+      <CheckoutForm products={products} addItem={addItem} />
       <CheckoutFormList items={items} />
 
       <Footer>

@@ -10,9 +10,9 @@ const List = ({item}) => {
           
       <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
               <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                {item.title}
+                {item.product.title}
               </Table.Cell>
-              <Table.Cell className=" text-end">{ item.price }</Table.Cell>
+              <Table.Cell className=" text-end">{ item.product.price }</Table.Cell>
 
               <Table.Cell className=" text-end">
                 <div className=" flex justify-end items-center gap-2">
