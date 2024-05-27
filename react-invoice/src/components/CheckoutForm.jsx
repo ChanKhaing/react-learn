@@ -5,6 +5,8 @@ import { Label, TextInput, Select, Button } from "flowbite-react";
 const CheckoutForm = ({ products, addItem }) => {
   const selectRef = useRef();
   const quantityRef = useRef();
+  const formRef = useRef();
+
   const id = Date.now();
   const handleform = (event) => {
     event.preventDefault();
@@ -25,6 +27,7 @@ const CheckoutForm = ({ products, addItem }) => {
       cost,
     };
     addItem(newitem);
+    formRef.current.reset();
   }
 
 
@@ -65,7 +68,7 @@ const CheckoutForm = ({ products, addItem }) => {
     
   return (
     <Container>
-      <form action="" onSubmit={handleform} className=" w-full block mb-10">
+      <form ref={formRef} action="" onSubmit={handleform} className=" w-full block mb-10">
         <div className=" grid grid-cols-5  gap-3">
           {/* select  */}
           <div className=" col-span-2 ">
@@ -86,7 +89,7 @@ const CheckoutForm = ({ products, addItem }) => {
             <div className="mb-2 block">
               <Label htmlFor="Quantity" value="Quantity input" />
             </div>
-            <TextInput ref={quantityRef} id="Quantity" type="number" sizing="md" />
+            <TextInput required ref={quantityRef} id="Quantity" type="number" sizing="md" />
           </div>
 
           {/* input end  */}

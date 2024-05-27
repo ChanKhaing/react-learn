@@ -48,18 +48,18 @@ const App = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   
   const [items, setItems] = useState([
-    {
-      id: 22,
-      product: {
-        id: 23,
-      title: "macbook pro m1",
-      price: 50,
-      quantity: 2,
-      cost: 100,
-      },
-      quantity: 2,
-      cost: 100,
-    }
+    // {
+    //   id: 22,
+    //   product: {
+    //     id: 23,
+    //   title: "macbook pro m1",
+    //   price: 50,
+    //   quantity: 2,
+    //   cost: 100,
+    //   },
+    //   quantity: 2,
+    //   cost: 100,
+    // }
   ]);
   
 
@@ -68,10 +68,31 @@ const App = () => {
   //   setitems(...items,newitem)
   // }
 
+  const addProduct = (newproduct) => {
+    setProduct([...products, newproduct]);
+  }
+
   const addItem = (newItem) => {
-    // setItems([...items, newItem]);
-    console.log(newItem);
+    setItems([...items, newItem]);
   };
+
+  const removeItem = (id) => {
+    
+    setItems(items.filter((item) => item.id != id ))
+  }
+
+  const handlequantity =  (id,amount) => {
+   setItems(
+     items.map((item) => {
+       if (item.id == id) {
+         const newquantity = item.quantity + amount;
+         const cost = (newquantity * item.product.price).toFixed(2);
+         return { ...item, quantity: newquantity,cost };
+       }
+       return item;
+     })
+   );
+  }
 
     const handleDrawer = () => {
       setDrawerOpen(!isDrawerOpen);
@@ -91,7 +112,7 @@ const App = () => {
       </Header>
 
       <CheckoutForm products={products} addItem={addItem} />
-      <CheckoutFormList items={items} />
+      <CheckoutFormList items={items} removeItem={removeItem} handlequantity={handlequantity} />
 
       <Footer>
         <Container>
@@ -106,6 +127,7 @@ const App = () => {
         products={products}
         isDrawerOpen={isDrawerOpen}
         handleDrawer={handleDrawer}
+        addProduct={addProduct}
       />
     </main>
   );

@@ -5,7 +5,8 @@ import List from "./List";
 // import { HiMiniPlus } from "react-icons/hi2";
 // import { HiMiniMinus } from "react-icons/hi2";
 
-const CheckoutFormList = ({ items }) => {
+const CheckoutFormList = ({ items, removeItem ,handlequantity}) => {
+  const total = items.reduce((pv,cv) => pv+parseFloat(cv.cost),0)
   return (
     <Container>
       <div className="overflow-x-auto">
@@ -21,14 +22,15 @@ const CheckoutFormList = ({ items }) => {
           </Table.Head>
           <Table.Body className="divide-y">
             {items.map((item) => (
-            <List
-              // updateItemQuantity={updateItemQuantity}
-              // removeItem={removeItem}
-              key={item.id}
-              item={item}
-            />
-          ))}
-
+              <List
+                // updateItemQuantity={updateItemQuantity}
+                // removeItem={removeItem}
+                key={item.id}
+                item={item}
+                removeItem={removeItem}
+                handlequantity={handlequantity}
+              />
+            ))}
             {items.length === 0 && (
               <Table.Row>
                 <Table.Cell
@@ -37,7 +39,21 @@ const CheckoutFormList = ({ items }) => {
                 >
                   There is no record
                 </Table.Cell>
-              </Table.Row>)}
+              </Table.Row>
+            )}
+            <Table.Row>
+              <Table.Cell
+                colSpan={3}
+                className="whitespace-nowrap font-medium text-gray-500 dark:text-white text-end"
+              >
+                Total
+              </Table.Cell>
+              <Table.Cell
+                className="whitespace-nowrap font-medium text-gray-500 dark:text-white text-end"
+              >
+                ${total.toFixed(2)}
+              </Table.Cell>
+            </Table.Row>
           </Table.Body>
         </Table>
       </div>
