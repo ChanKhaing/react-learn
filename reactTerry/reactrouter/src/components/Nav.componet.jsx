@@ -12,7 +12,7 @@ const NavComponent = () => {
     //       <NavLink to="/about"> About</NavLink>
     //     </li>
     //     <li>
-    //       <NavLink to="/contact">Contact</NavLink>
+    //      4 <NavLink to="/contact">Contact</NavLink>
     //     </li>
     //   </ol>
     // </nav>
@@ -22,10 +22,16 @@ const NavComponent = () => {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="about">About</NavLink>
+          {/* data transfer using state  */}
+          <NavLink to="about" state={{phone:123456}}>About</NavLink>
         </li>
         <li>
-          <NavLink to="contact">Contact</NavLink>
+          {/* <NavLink replace={true} to="contact">
+            Contact
+          </NavLink> */}
+          <NavLink  to="contact">
+            Contact
+          </NavLink>
         </li>
 
         <li>
