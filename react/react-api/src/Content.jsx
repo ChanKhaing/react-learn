@@ -8,13 +8,24 @@ const Content = (props) => {
        const decrement = () => setCount(count - 1);
     //    const reset = () => setCount(0);
     console.log(count, "mount");
+
+
     useEffect(() => {
-     console.log("Countmounted")
-    
+        // effect body 
+        console.log("Countmounted")
+        fetch("https://fakestoreapi.com/products/1")
+          .then((res) => res.json())
+          .then((json) => console.log(json));
+
+      
+        
+        // clean up function 
       return () => {
         console.log("unmounted",count)
       }
-    }, [])
+    }, [count])
+
+
     
   return (
     <div>

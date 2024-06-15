@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Content from "./Content";
 
 const HideShow = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
