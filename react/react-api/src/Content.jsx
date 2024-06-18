@@ -12,12 +12,38 @@ const Content = (props) => {
 
     useEffect(() => {
         // effect body 
-        console.log("Countmounted")
-        fetch("https://fakestoreapi.com/products/1")
-          .then((res) => res.json())
-          .then((json) => console.log(json));
-
+        // console.log("Countmounted")
+        // fetch("https://fakestoreapi.com/products/1")
+        //   .then((res) => res.json())
+      //   .then((json) => console.log(json));
       
+      // fetch("https://fakestoreapi.com/products/1")
+      //   .then((res) => res.json())
+      //   .then( (json) => {
+      //     console.log(json);
+      //   })
+
+
+      // const fetch = async function getData() {
+      //   return Promise.resolve('data');
+      // }
+      
+      // async function getMoreData(data) {
+      //   return Promise.resolve(data + 'more data');
+      // }
+      
+      // async function getAll() {
+      //   const data = await getData();
+      //   const moreData = await getMoreData(data);
+      //   return `All the data: ${data}, ${moreData}`;
+      // }
+      
+      // getAll().then((all) => {
+      //   console.log('all the data')
+      // })
+
+
+      fetchdata();
         
         // clean up function 
       return () => {
@@ -25,7 +51,11 @@ const Content = (props) => {
       }
     }, [count])
 
-
+const fetchdata = async () => {
+  const res = await fetch("https://fakestoreapi.com/products/1");
+  const json = await res.json();
+  console.log(json);
+};
     
   return (
     <div>
