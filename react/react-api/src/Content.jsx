@@ -50,12 +50,18 @@ const Content = (props) => {
         console.log("unmounted",count)
       }
     }, [count])
-
-const fetchdata = async () => {
-  const res = await fetch("https://fakestoreapi.com/products/1");
-  const json = await res.json();
-  console.log(json);
+  
+  const fetchdata = async () => {
+    const res = await fetch("https://fakestoreapi.com/products/1");
+    const json = await res.json();
+    console.log(json);
 };
+
+// const fetchdata = async () => {
+//   const res = await fetch("https://fakestoreapi.com/products/1");
+//   const json = await res.json();
+//   console.log(json);
+// };
     
   return (
     <div>
