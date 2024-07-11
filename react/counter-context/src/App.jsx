@@ -5,6 +5,7 @@ import Counter from './components/Counter';
 import Add from './components/Add';
 import Sub from './components/Sub';
 import ContextProvider from "./context/ContextProvider";
+import ShopProvider from "./context/ShopProvider";
 const App = () => {
   
   // const [count, setcount] = useState(0);
@@ -19,9 +20,11 @@ const App = () => {
 
   return (
     <ContextProvider>
-      <Counter  />
-      <Sub  />
-      <Add  />
+      <ShopProvider>
+        <Counter />
+        <Sub />
+        <Add />
+      </ShopProvider>
     </ContextProvider>
   );
 };
