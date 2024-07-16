@@ -3,6 +3,8 @@
 // const fs = require('fs');
 
 // fs.writeFileSync('hello.txt',"hello world ")
+
+
 // .createServer() is a method provided by the http module in Node.js.
 const http = require('http');
 const { title } = require('process');
