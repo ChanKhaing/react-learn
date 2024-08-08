@@ -52,7 +52,8 @@ const server = http.createServer((req, res) => {
         // console.log(body);
       });
     return  req.on('end', () => {
-          const parseBody = Buffer.concat(body).toString();
+      const parseBody = Buffer.concat(body).toString();
+      console.log(parseBody);
         const reqdata = parseBody.split('=')[1];
         fs.writeFile("past.txt", reqdata, err => {
           if (!err) {
@@ -92,4 +93,4 @@ const server = http.createServer((req, res) => {
   urlfunction(`This is the last and your url is ${req.url}`)
 });
 
-server.listen(5000);
+server.listen(8000);

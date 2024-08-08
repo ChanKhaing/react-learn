@@ -42,8 +42,12 @@ const Content = (props) => {
       //   console.log('all the data')
       // })
 
-
-      fetchdata();
+        // setInterval(() => {
+        //   console.log(Math.random())
+      // }, 3000);
+      
+      
+      // fetchdata();
         
         // clean up function 
       return () => {
@@ -51,11 +55,18 @@ const Content = (props) => {
       }
     }, [count])
   
+//   const fetchdata = async () => {
+//     const res = await fetch("https://fakestoreapi.com/products/1");
+//     const json = await res.json();
+//     console.log(json);
+  // };
+  
   const fetchdata = async () => {
     const res = await fetch("https://fakestoreapi.com/products/1");
     const json = await res.json();
     console.log(json);
-};
+    
+  }
 
 // const fetchdata = async () => {
 //   const res = await fetch("https://fakestoreapi.com/products/1");
