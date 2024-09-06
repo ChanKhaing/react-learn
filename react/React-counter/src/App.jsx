@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Counter from "./Counter";
 import Box from "./Box";
+import SimpleNavbar from "./SimpleNavbar";
 
 const App = () => {
   const [faqs, setFaq] = useState([
@@ -57,6 +58,7 @@ const App = () => {
 
   return (
     <div>
+      <SimpleNavbar/>
       <Counter />
       <h1 className="font-bold font-serif text-2xl mb-2">FAQ</h1>
       <div>
