@@ -54,12 +54,12 @@ const App = () => {
      }))
     // setFaq(faqs.map((faq) => { faq }
     // ))
-  }
+  } 
 
   return (
     <div>
       <SimpleNavbar/>
-      <Counter />
+      {/* <Counter />
       <h1 className="font-bold font-serif text-2xl mb-2">FAQ</h1>
       <div>
         {faqs.map((faq) => (
@@ -67,7 +67,7 @@ const App = () => {
             answer={faq.answer} id={faq.id} click={click}
             hide={faq.hide} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

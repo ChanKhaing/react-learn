@@ -8,8 +8,8 @@ const SimpleNavbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 p-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-black p-4">
+      <div className="container mx-auto  flex justify-between items-center">
         {/* Logo */}
         <div className="text-white text-2xl font-bold">MySite</div>
 
