@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import TaskContext from "../context/TaskContext";
 
 const Task = ({ job: { id, task, isDone } }) => {
-  const { removeTask, doneTask } = useContext(TaskContext);
+  // const { removeTask, doneTask } = useContext(TaskContext);
 
   const handleRemoveTaskBtn = () => {
     if (confirm("Are you sure to delete?")) {
