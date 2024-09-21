@@ -12,13 +12,13 @@ const List = (props) => {
     setNewJob(event.target.value);
   };
 
-  const handleNewJobInputUpdate = (event) => {
-    if (event.key === "Escape") {
-      console.log("update");
-      props.editTask(newJob, props.id);
-      setIsEdit(false);
-    }
-  };
+     const handlenewjobinputupdate = (event) => {
+       if (event.key == "Escape" || event.key == "Enter") {
+         editlist(newjob, id);
+         setedit(false);
+         toast.success("List edited");
+       }
+     };
 
   const handleCheckbox = () => {
     props.checkTask(props.id);
@@ -76,7 +76,7 @@ const List = (props) => {
             className=" border border-stone-700 text-xs py-1 px-2"
             value={newJob}
             onChange={handleNewJobInput}
-            onKeyUp={handleNewJobInputUpdate}
+            onKeyUp={handlenewjobinputupdate}
           />
         ) : (
           <p className={`${props.isDone && "line-through"}`}>{props.job}</p>
@@ -122,7 +122,6 @@ const List = (props) => {
           </svg>
         </button>
       </div>
-
     </div>
   );
 };
