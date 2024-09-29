@@ -10,8 +10,10 @@ import CheckoutFormList from './components/CheckoutFormList';
 import Drawer from './components/Drawer';
 
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const App = () => {
+   const { data, error } = fetcher("  ");
     const [products, setProduct] = useState([
       {
         id: 1,
