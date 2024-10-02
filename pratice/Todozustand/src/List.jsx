@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import TaskContext from "./context/TaskContext";
+import useTaskStore from './store/useTaskStore';
 
 
 
@@ -7,7 +8,8 @@ import TaskContext from "./context/TaskContext";
 
 const List = ({ task: { id, job } }) => {
   
-  const { deletetask } = useContext(TaskContext)
+  // const { deletetask } = useContext(TaskContext)
+  const { deletetask } = useTaskStore();
     
  const deletebtn = () => {
   deletetask(id)

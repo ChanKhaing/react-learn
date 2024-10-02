@@ -5,6 +5,7 @@ import Liststatus from "./Liststatus";
 import Createform from "./Createform";
 import Createpage from "./Createpage";
 import TaskProvider from "./context/TaskProvider";
+import Counter from "./components/Counter";
 
 const App = () => {
   
@@ -18,7 +19,10 @@ const App = () => {
           <Createpage  />
           <Listgroup  />
         </TaskProvider>
+     
+       
       </div>
+      {/* <Counter/> */}
     </>
   );
 };
