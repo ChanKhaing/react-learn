@@ -5,23 +5,29 @@ import TaskContext from "./context/TaskContext";
 
 
 
-const List = ({ task: { id, job } }) => {
+const List = ({ task: { id, job, isDone } }) => {
   
-  const { deletetask } = useContext(TaskContext)
+  const { deletetask,donetask } = useContext(TaskContext)
     
  const deletebtn = () => {
   deletetask(id)
  }
 
+  const listcheckhandler = () => {
+    donetask(id)
+  }
 
 
   return (
     <>
+      
       <div className="list group bg-white animate__animated animate__shakeX border border-zinc-700 p-3 mb-3 overflow-hidden">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
             <input
               type="checkbox"
+              checked={isDone}
+              onChange={listcheckhandler}
               className="list-checkbox accent-zinc-700 w-4 h-4"
             />
           </div>
