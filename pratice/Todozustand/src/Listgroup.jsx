@@ -10,7 +10,7 @@ const Listgroup = () => {
   return (
     <div>
       {
-        tasks.map((el) => <List key={el.job} task={ el} /> )
+        tasks.map((el) => <List key={el.id} task={ el} /> )
       }
     </div>
   )

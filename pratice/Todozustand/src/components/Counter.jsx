@@ -8,14 +8,14 @@ const Counter = () => {
 
   //   const { count, resetCount, increaseCount, decreaseCount } = useCounterStore();
   
-  const { count,resetcount,addcount,subcount } = useCounterStore();
-
+  // const { count,resetcount,addcount,subcount } = useCounterStore();
+  const { count, resetCount,increaseCount,decreaseCount } = useCounterStore();
   console.log(useCounterStore());
 
   const handleReset = () => {
     // setCount(0);
-    // resetCount();
-    resetcount();
+    resetCount();
+    // resetcount();
     // subcount();
       
   
@@ -23,15 +23,15 @@ const Counter = () => {
 
   const handleIncrement = () => {
     // setCount(count + 1);
-    // increaseCount(5);
+    increaseCount(5);
     // addcount(2);
-    addcount();
+    // addcount();
   };
 
   const handleDecrement = () => {
     // setCount(count - 1);
-    // decreaseCount();
-    subcount();
+    decreaseCount();
+    // subcount();
   };
 
   return (

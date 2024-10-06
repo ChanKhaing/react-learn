@@ -9,12 +9,34 @@ import useTaskStore from './store/useTaskStore';
 const List = ({ task: { id, job } }) => {
   
   // const { deletetask } = useContext(TaskContext)
-  const { deletetask } = useTaskStore();
+  const { deletetask,edittask } = useTaskStore();
+  const [edit, setedit] = useState(false);
+  const [editText, seteditText] = useState(job);
     
  const deletebtn = () => {
   deletetask(id)
  }
 
+  
+  const editbtnhandler = () => {
+    
+    setedit(true)
+  }
+  
+ const editinput = (event) => {
+  seteditText(event.target.value)
+ }
+  
+  const editinputhandler = (event) => {
+    console.log(event.key)
+
+    if (event.key == "Enter") {
+      edittask(id,editText)
+      setedit(false)
+      console.log("editup"+job)
+    }
+    
+  }
 
 
   return (
@@ -27,18 +49,20 @@ const List = ({ task: { id, job } }) => {
               className="list-checkbox accent-zinc-700 w-4 h-4"
             />
           </div>
+          {edit ? (
+            <input
+              type="text"
+              className=" border border-stone-700 text-xs py-1 px-2"
+              onChange={editinput}
+              onKeyUp={editinputhandler}
+              value={editText}
+            />
+          ) : (
+            <p>{job}</p>
+          )}
 
-          {/* <input
-            type="text"
-            className=" border border-stone-700 text-xs py-1 px-2"
-            value={job}
-           
-          /> */}
-
-          <p>{job}</p>
-
-          {/* <div className="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
-            <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2">
+          <div className="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
+            <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2" onClick={editbtnhandler}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -54,7 +78,10 @@ const List = ({ task: { id, job } }) => {
                 />
               </svg>
             </button>
-            <button className="list-del-btn border duration-200 active:scale-90 border-zinc-700 p-2">
+            <button
+              className="list-del-btn border duration-200 active:scale-90 border-zinc-700 p-2"
+              onClick={deletebtn}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -70,11 +97,7 @@ const List = ({ task: { id, job } }) => {
                 />
               </svg>
             </button>
-          </div> */}
-
-          <button onClick={ deletebtn} className=' border px-2 py-1 '>
-            delete
-          </button>
+          </div>
         </div>
       </div>
     </>

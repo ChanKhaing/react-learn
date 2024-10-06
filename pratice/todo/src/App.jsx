@@ -6,13 +6,12 @@ import Listgrouphandler from "./Listgrouphandler";
 
 const App = () => {
 
-    const [tasks, settask] = useState(
-      [
-    { id: 1, job: "Complete homework", isDone: false },
-    { id: 2, job: "Do laundry", isDone: false },
-    { id: 3, job: "Buy groceries", isDone: true },
-      ]
-    )
+    const [tasks, settask] = useState([
+      { id: 1, job: "Complete homework", isDone: false },
+      { id: 2, job: "Do laundry", isDone: false },
+      { id: 3, job: "Buy groceries", isDone: true },
+      { id: 4, job: "Coding", isDone: true },
+    ]);
     const  createlist = (newjob) => {
        const newtask = {
            id: Math.random() * Math.random(),
@@ -23,18 +22,27 @@ const App = () => {
         settask([...tasks,newtask])
     }
 
-    const edittask = (editjob,id) => {
-       settask(
-         tasks.map((task) => {
-           if (id === task.id) {
-             // console.log("check",id)
-               task.job = editjob;
-             // console.log(task.isDone,id)
-           }
-           return task;
-         })
-       );
-    }
+    // const edittask = (editjob,id) => {
+    //    settask(
+    //      tasks.map((task) => {
+    //        if (id === task.id) {
+    //          // console.log("check",id)
+    //            task.job = editjob;
+    //          // console.log(task.isDone,id)
+    //        }
+    //        return task;
+    //      })
+    //    );
+  // }
+  
+  let edittask = (editjob, id) => {
+    tasks.map((task) => {
+      if (id === task.id) {
+        task.job = editjob
+      }
+    
+    })
+  }
 
   
 
@@ -63,7 +71,7 @@ const App = () => {
       <Heading text="Todo" />
      <Createform createlist={createlist} />
       <Liststatus tasks={tasks} />
-      <Listgrouphandler  tasks={tasks} deletetask={deletetask} edittask={edittask} checktask={checktask} />
+      <Listgrouphandler  tasks={tasks} deletetask={deletetask} edittask={edittask} checktask={checktask}  />
     </div>
   );
 };
