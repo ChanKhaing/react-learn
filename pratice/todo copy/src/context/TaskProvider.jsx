@@ -35,13 +35,13 @@ const TaskProvider = ({ children }) => {
   
   const donetask = (id) => {
     setTask(tasks.map((el) => el.id === id ? { ...el, isDone: !el.isDone } : el))
+  }
   
-         
-
-    
-    }
+  const edittask = (id,current) => {
+    setTask(tasks.map((el) => el.id == id ? {...el, job: current} :el ))
+  }
     return (
-        <TaskContext.Provider value={{tasks, length, createtask, deletetask,donetask}}>
+        <TaskContext.Provider value={{tasks, length, createtask, deletetask,donetask,edittask}}>
             {children}
       </TaskContext.Provider>
   )
