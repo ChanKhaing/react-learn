@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
+  NavigationMenuViewport,np
 } from "@/components/ui/navigation-menu";
 
 const Navigator = () => {
