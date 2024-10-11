@@ -1,13 +1,13 @@
-import { Button, Table } from "flowbite-react"; // Importing necessary components
+import { Button, Table } from "flowbite-react";
 import React, { useRef } from "react";
 import { Toast } from "primereact/toast"; // Import PrimeReact Toast
 import "primereact/resources/themes/lara-light-indigo/theme.css"; // Theme
 import "primereact/resources/primereact.min.css"; // Core CSS
 import "primeicons/primeicons.css"; // Icons
-import Swal from "sweetalert2"; // SweetAlert for confirmation dialog
+import Swal from "sweetalert2";
 
 const List = ({ item, removeItem, handlequantity }) => {
-  const toast = useRef(null); // Creating a ref for the Toast
+  const toast = useRef(null);
 
   const delbtnhandler = () => {
     Swal.fire({
@@ -36,36 +36,32 @@ const List = ({ item, removeItem, handlequantity }) => {
       // Use PrimeReact's toast to show the error
       toast.current.show({
         severity: "error", // Type of message
-        // summary: "Error", // Title
+        summary: "Error", // Title
         detail: "Quantity must be greater than 1", // Message detail
         life: 1300, // Duration (milliseconds)
-        position: "bottom-left", // Position
-         style: {
+        position: "top-center", // Position
+        style: {
           color: "red", // Text color
           backgroundColor: "white", // Background color (optional)
         },
-      
       });
     }
   };
 
   return (
     <>
+      <Toast ref={toast} />
       <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
           {item.product.title}
         </Table.Cell>
         <Table.Cell className="text-end">${item.product.price}</Table.Cell>
+
         <Table.Cell className="text-end">
           <div className="flex justify-end items-center gap-2">
-            <Toast ref={toast} /> {/* Render the Toast component here */}
-            <Button onClick={minusbtnhandler} size="xs" color="gray">
-              -
-            </Button>
+            <Button onClick={minusbtnhandler} size="xs" color="gray">-</Button>
             <span>{item.quantity}</span>
-            <Button onClick={addbtnhandler} size="xs" color="gray">
-              +
-            </Button>
+            <Button onClick={addbtnhandler} size="xs" color="gray">+</Button>
           </div>
         </Table.Cell>
         <Table.Cell className="text-end">${item.cost}</Table.Cell>
@@ -83,5 +79,4 @@ const List = ({ item, removeItem, handlequantity }) => {
   );
 };
 
-// Ensure that this export statement is at the top level
 export default List;
