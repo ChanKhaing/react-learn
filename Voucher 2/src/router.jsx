@@ -6,6 +6,7 @@ import ProductPage from "./pages/ProductPage.jsx";
 import SalePage from "./pages/SalePage.jsx";
 import VoucherPage from "./pages/VoucherPage.jsx";
 import { createBrowserRouter } from "react-router-dom";
+import ProductAddPage from "./pages/ProductAddPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/product",
         element: <ProductPage />,
+      },
+      {
+        path: "/product/add",
+        element: <ProductAddPage />,
       },
       {
         path: "/sale",

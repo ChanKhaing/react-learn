@@ -16,6 +16,20 @@ const Breadcrumb = ({ currentPageTitle, links }) => {
               Home
             </Link>
           </li>
+          {links &&
+            links.map(({title,path}, index) => (
+              <li aria-current="page" key={index}>
+                <div className="flex items-center">
+                  <HiChevronRight />
+                  <Link
+                    to={path}
+                    className="inline-flex gap-1 items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    {title}
+                  </Link>
+                </div>
+              </li>
+            ))}
           <li aria-current="page">
             <div className="flex items-center">
               <HiChevronRight />
