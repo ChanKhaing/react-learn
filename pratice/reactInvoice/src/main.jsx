@@ -8,5 +8,5 @@ import Lightmood from './Lightmood';
 const rootelement = document.getElementById('root');
 const root = createRoot(rootelement);
 // root.render(<App/>);
-root.render(<Lightmood/>)
+root.render(<App/>)
 

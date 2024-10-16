@@ -7,7 +7,8 @@ import useTaskStore from './store/useTaskStore';
 
 
 const List = ({ task: { id, job } }) => {
-  
+    const [loading, setLoading] = useState(true);
+
   // const { deletetask } = useContext(TaskContext)
   const { deletetask,edittask } = useTaskStore();
   const [edit, setedit] = useState(false);
@@ -61,7 +62,7 @@ const List = ({ task: { id, job } }) => {
             <p>{job}</p>
           )}
 
-          <div className="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
+          <div className="flex gap-2 duration-300  ">
             <button className="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2" onClick={editbtnhandler}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -6,6 +6,7 @@ import Createform from "./Createform";
 import Createpage from "./Createpage";
 import TaskProvider from "./context/TaskProvider";
 import Counter from "./components/Counter";
+import JobList from "./JobList";
 
 const App = () => {
   
@@ -16,8 +17,9 @@ const App = () => {
       <div className="bg-white w-[450px] mx-auto mt-10 p-10">
         <TaskProvider>
           <Heading text="Todo" />
-          <Createpage  />
-          <Listgroup  />
+          <Createpage />
+          <JobList/>
+          {/* <Listgroup  /> */}
         </TaskProvider>
      
        
