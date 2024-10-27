@@ -1,16 +1,21 @@
+import React from 'react'
+import Navigator from './Navigator'
+import Cardchan from './Cardchan';
+// import Accordion from './Accordion';
 
-import Carosuelchan from './components/demo/Carosuelchan';
-import Drawer from './components/demo/Drawer';
-import { Button } from './components/ui/button'
 
-function App() {
 
+const App = () => {
   return (
-    <>
-      <Button>Click me</Button>
-      <Carosuelchan />
-      <Drawer/>
-    </>
+    <div>
+      <h1 className=" p-5 m-5 ">Hello shadcn ui testing</h1>
+
+      <div className=' flex m-5'>
+              <Navigator />
+              {/* <Accordion/> */}
+          </div>
+          <Cardchan/>
+    </div>
   );
 }
 
